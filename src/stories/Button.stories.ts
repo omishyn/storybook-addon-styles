@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
+import {withStyleResources} from '../index';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Button> = {
@@ -10,14 +11,32 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
   parameters: {
-    myAddonParameter: `
-<MyComponent boolProp scalarProp={1} complexProp={{ foo: 1, bar: '2' }}>
-  <SomeOtherComponent funcProp={(a) => a.id} />
-</MyComponent>
-`,
+    'addon-styles': [
+      {
+        id: `bootstrap v4.1.3`,
+        code: `<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link>`,
+        picked: true,
+      },
+      {
+        id: `bootstrap v3.3.5`,
+        code: `<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>`,
+        picked: false,
+      },
+      {
+        id: `fontawesome`,
+        code: `<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>`,
+        picked: true,
+      },
+      {
+        id: `green theme`,
+        code: `<style>.fa { color: green }</style>`,
+        picked: false,
+      },
+    ],
   },
+  decorators: [withStyleResources],
 };
 
 export default meta;

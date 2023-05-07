@@ -1,7 +1,7 @@
-import React, { memo, useCallback, useEffect } from "react";
-import { useGlobals, useStorybookApi } from "@storybook/manager-api";
-import { Icons, IconButton } from "@storybook/components";
-import { ADDON_ID, PARAM_KEY, TOOL_ID } from "./constants";
+import React, {memo, useCallback, useEffect} from "react";
+import {useGlobals, useStorybookApi} from "@storybook/manager-api";
+import {IconButton, Icons} from "@storybook/components";
+import {ADDON_ID, PARAM_KEY, TOOL_ID} from "./constants";
 
 export const Tool = memo(function MyAddonSelector() {
   const [globals, updateGlobals] = useGlobals();

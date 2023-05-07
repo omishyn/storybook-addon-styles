@@ -35,14 +35,15 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  console.log('props', {props});
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+      <button
+          type="button"
+          className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+          style={{backgroundColor}}
+          {...props}
+      >
+          <i className="fa fa-camera-retro"> {label}</i>
+      </button>
   );
 };
